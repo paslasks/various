@@ -5,10 +5,15 @@ buildscript {
 	repositories {
 		mavenCentral()
 	}
+
+	plugins {
+		id 'net.ltgt.apt' version '0.10'
+	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -30,4 +35,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	compileOnly('org.projectlombok:lombok:1.16.18')
+
+	apt 'org.projectlombok:lombok:1.18.2'
 }
